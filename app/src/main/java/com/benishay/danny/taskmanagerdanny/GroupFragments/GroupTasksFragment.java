@@ -12,10 +12,10 @@ import com.benishay.danny.taskmanagerdanny.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MembersFragment extends Fragment {
+public class GroupTasksFragment extends Fragment {
 
 
-    public MembersFragment() {
+    public GroupTasksFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class MembersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_members, container, false);
+        return inflater.inflate(R.layout.fragment_tasks, container, false);
     }
 
 }

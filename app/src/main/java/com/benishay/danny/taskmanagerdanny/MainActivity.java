@@ -1,5 +1,6 @@
 package com.benishay.danny.taskmanagerdanny;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.benishay.danny.taskmanagerdanny.Data.DBUtils;
+import com.benishay.danny.taskmanagerdanny.Data.MyGroup;
 import com.benishay.danny.taskmanagerdanny.Data.MyTasks;
 import com.benishay.danny.taskmanagerdanny.MainFragments.MyGroupsFragment;
 import com.benishay.danny.taskmanagerdanny.MainFragments.MyTasksFragment;
@@ -70,31 +72,49 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final MyTasks myTasks = new MyTasks();
-                myTasks.setCreateAt(System.currentTimeMillis());
-                myTasks.setText("todo "+System.currentTimeMillis());
-                myTasks.setCompleted(false);
-                myTasks.setAddress("Haifa");
-                myTasks.setgKey("group 1");
-                myTasks.setuKey(DBUtils.auth.getCurrentUser().getEmail());
-                myTasks.settKey(DBUtils.myTasksRef.push().getKey());
-                DBUtils.myTasksRef.child(myTasks.gettKey()).setValue(myTasks).
-                        addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(MainActivity.this, myTasks.getText()+" added",
-                                            Toast.LENGTH_LONG).show();
-                                }
-                                else {
-                                    Toast.makeText(MainActivity.this, myTasks.getText()+ " failed",
-                                            Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
+                Toast.makeText(MainActivity.this, "BEFORE...", Toast.LENGTH_LONG).show();
+                MyGroup myGroup = new MyGroup();
+                myGroup.setMngrUkey(DBUtils.auth.getCurrentUser().getEmail());
+                myGroup.setName("g"+System.currentTimeMillis());
+                myGroup.addUserKey(myGroup.getMngrUkey().replace('.','*'));
+
+                myGroup.setgKey(DBUtils.myGroupsRef.push().getKey());
+
+
+                DBUtils.myGroupsRef.child(myGroup.getgKey()).setValue(myGroup);
+                //Toast.makeText(MainActivity.this, "AFTER...", Toast.LENGTH_LONG).show();
 
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+//                Intent intent = new Intent(getBaseContext(), AddGroupActivity.class);
+//                startActivity(intent);
+
+//                final MyTasks myTasks = new MyTasks();
+//                myTasks.setCreateAt(System.currentTimeMillis());
+//                myTasks.setText("todo "+System.currentTimeMillis());
+//                myTasks.setCompleted(false);
+//                myTasks.setAddress("Haifa");
+//                myTasks.setgKey("group 1");
+//                myTasks.setuKey(DBUtils.auth.getCurrentUser().getEmail());
+//                myTasks.settKey(DBUtils.myTasksRef.push().getKey());
+//                DBUtils.myTasksRef.child(myTasks.gettKey()).setValue(myTasks).
+//                        addOnCompleteListener(new OnCompleteListener<Void>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<Void> task) {
+//                                if (task.isSuccessful()) {
+//                                    Toast.makeText(MainActivity.this, myTasks.getText()+" added",
+//                                            Toast.LENGTH_LONG).show();
+//                                }
+//                                else {
+//                                    Toast.makeText(MainActivity.this, myTasks.getText()+ " failed",
+//                                            Toast.LENGTH_LONG).show();
+//                                }
+//                            }
+//                        });
+//
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
             }
         });
 

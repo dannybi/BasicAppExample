@@ -16,4 +16,8 @@
     <string name="signout">Sign Out</string>
     <string name="iscompleted">Is Completed</string>
     <string name="title_activity_group">GroupActivity</string>
+    <string name="EnterGroupName">Enter Group Name</string>
+    <string name="save">Save</string>
+    <string name="enterText">Enter Text</string>
+    <string name="enterAddress">Enter Address</string>
 </resources>
