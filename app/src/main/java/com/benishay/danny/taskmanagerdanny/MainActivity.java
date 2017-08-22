@@ -72,22 +72,22 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "BEFORE...", Toast.LENGTH_LONG).show();
-                MyGroup myGroup = new MyGroup();
-                myGroup.setMngrUkey(DBUtils.auth.getCurrentUser().getEmail());
-                myGroup.setName("g"+System.currentTimeMillis());
-                myGroup.addUserKey(myGroup.getMngrUkey().replace('.','*'));
-
-                myGroup.setgKey(DBUtils.myGroupsRef.push().getKey());
-
-
-                DBUtils.myGroupsRef.child(myGroup.getgKey()).setValue(myGroup);
-                //Toast.makeText(MainActivity.this, "AFTER...", Toast.LENGTH_LONG).show();
-
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-//                Intent intent = new Intent(getBaseContext(), AddGroupActivity.class);
-//                startActivity(intent);
+//                Toast.makeText(MainActivity.this, "BEFORE...", Toast.LENGTH_LONG).show();
+//                MyGroup myGroup = new MyGroup();
+//                myGroup.setMngrUkey(DBUtils.auth.getCurrentUser().getEmail());
+//                myGroup.setName("g"+System.currentTimeMillis());
+//                myGroup.addUserKey(myGroup.getMngrUkey().replace('.','*'));
+//
+//                myGroup.setgKey(DBUtils.myGroupsRef.push().getKey());
+//
+//
+//                DBUtils.myGroupsRef.child(myGroup.getgKey()).setValue(myGroup);
+//                //Toast.makeText(MainActivity.this, "AFTER...", Toast.LENGTH_LONG).show();
+//
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+                Intent intent = new Intent(getBaseContext(), AddGroupActivity.class);
+                startActivity(intent);
 
 //                final MyTasks myTasks = new MyTasks();
 //                myTasks.setCreateAt(System.currentTimeMillis());
