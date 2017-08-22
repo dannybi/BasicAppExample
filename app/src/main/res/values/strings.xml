@@ -20,4 +20,5 @@
     <string name="save">Save</string>
     <string name="enterText">Enter Text</string>
     <string name="enterAddress">Enter Address</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

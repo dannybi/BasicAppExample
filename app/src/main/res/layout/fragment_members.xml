@@ -7,7 +7,7 @@
     <!-- TODO: Update blank fragment layout -->
 
     <ListView
-        android:id="@+id/lstvGrpMembers"
+        android:id="@+id/lstvGroupMembers"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </FrameLayout>

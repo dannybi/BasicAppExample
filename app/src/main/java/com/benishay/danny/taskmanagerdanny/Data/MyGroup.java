@@ -1,12 +1,13 @@
 package com.benishay.danny.taskmanagerdanny.Data;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  * Created by Dan on 12/07/2017.
  */
 
-public class MyGroup {
+public class MyGroup implements Serializable{
     private String gKey, mngrUkey, name;
     private HashMap<String, Object> userKeys=new HashMap<>();
     private HashMap<String, Object> taskKeys=new HashMap<>();

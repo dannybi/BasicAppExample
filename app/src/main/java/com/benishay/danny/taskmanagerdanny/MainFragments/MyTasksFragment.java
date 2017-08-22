@@ -51,7 +51,9 @@ public class MyTasksFragment extends Fragment implements Titleable{
         //DBUtils.myTasksRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
         //add listener to update screen for !! every change !! in the Firebase dbase
-        DBUtils.myTasksRef.addValueEventListener(new ValueEventListener() {
+        //the orderByChild("uKey").equalTo(userEmail) filter the results
+        String userEmail = DBUtils.auth.getCurrentUser().getEmail();
+        DBUtils.myTasksRef.orderByChild("uKey").equalTo(userEmail).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 taskAdapter.clear();
