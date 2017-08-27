@@ -31,8 +31,7 @@
         android:id="@+id/textInputLayout2"
         android:layout_marginTop="53dp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textInputLayout"
-        android:layout_alignEnd="@+id/textInputLayout">
+        android:layout_alignStart="@+id/textInputLayout">
 
         <EditText
             android:id="@+id/etEmail"
